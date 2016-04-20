@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BaseAppTheme.AppTheme">
+        <!--填充底部导航栏区域-->
+        <item name="android:windowTranslucentNavigation">true</item>
+        <!--填充顶部状态区域-->
+        <item name="android:windowTranslucentStatus">true</item>
+        <!--在配合fitsSystemWindows增加视图的padding恢复正常大小，并且把背景扩大-->
+    </style>
+    <style name="BaseAppTheme.SlidrTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+</resources>
