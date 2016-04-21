@@ -16,3 +16,11 @@
 #   public *;
 #}
 -keep public class * implements com.bumptech.glide.module.GlideModule
+-keepclassmembers android.support.v4.widget.SwipeRefreshLayout{
+       private void setRefreshing(boolean,boolean);
+}
+
+-dontwarn net.youmi.android.**
+-keep class net.youmi.android.** {
+    *;
+}

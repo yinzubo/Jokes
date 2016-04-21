@@ -32,11 +32,20 @@ public class AutoSwipeRefreshLayout extends SwipeRefreshLayout{
             View progress=(View)mCircleView.get(this);
             progress.setVisibility(View.VISIBLE);
 
-            Method setRefresh=SwipeRefreshLayout.class.getDeclaredMethod("setRefreshing", boolean.class);
+            Method setRefresh=SwipeRefreshLayout.class.getDeclaredMethod("setRefreshing", boolean.class,boolean.class);
             setRefresh.setAccessible(true);
             setRefresh.invoke(this,true,true);
         }catch (Exception e){
             e.printStackTrace();
         }
+
+        //这个好像可以管用
+        post(new Runnable() {
+            @Override
+            public void run() {
+        //        setRefreshing(true);//刷新
+
+            }
+        });
     }
 }

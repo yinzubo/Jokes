@@ -1,24 +1,15 @@
 package com.bitech.joke.module.main.Fragment;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
+
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-
 import com.bitech.joke.R;
 import com.bitech.joke.annotation.ActivityInject;
 import com.bitech.joke.base.BaseFragment;
 import com.bitech.joke.bean.JokeBean;
 import com.bitech.joke.callback.OnItemClickListener;
-import com.bitech.joke.http.manager.RetrofitManager;
-import com.bitech.joke.module.main.activity.HomeActivity;
-import com.bitech.joke.module.main.activity.JokeDetailActivity;
 import com.bitech.joke.module.main.adapter.HomeRecyclerAdapter;
 import com.bitech.joke.module.main.presenter.HomePresener;
 import com.bitech.joke.module.main.view.IHomeView;
@@ -27,7 +18,6 @@ import com.bitech.joke.utils.DividerItemDecoration;
 import com.bitech.joke.utils.ToastUtil;
 import com.bitech.joke.widgets.AutoLoadMoreRecyclerView;
 import com.bitech.joke.widgets.AutoSwipeRefreshLayout;
-import com.squareup.haha.perflib.Main;
 
 import java.util.List;
 
@@ -86,8 +76,8 @@ public class HomeFragment extends BaseFragment implements IHomeView, OnItemClick
         });
 
         initInject();
-        swipeRefreshLayout.setRefreshing(true);
-        swipeRefreshLayout.autoRefresh();
+        //swipeRefreshLayout.setRefreshing(true);
+        swipeRefreshLayout.autoRefresh();//首次进入页面自动刷新，但是其不会调用onRefresh接口，只有手动下拉才会调用
         getData();
     }
 

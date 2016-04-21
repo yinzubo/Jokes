@@ -10,7 +10,7 @@ android {
         minSdkVersion 11
         targetSdkVersion 23
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
     }
     signingConfigs{
         release{
@@ -36,29 +36,36 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'//内存泄漏监测
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
+    //内存泄漏监测
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
-
     compile 'com.android.support:appcompat-v7:23.2.0'
     compile 'com.android.support:design:23.2.0'
-    compile 'com.anthonycr.grant:permissions:1.0'//6.0以上的权限管理
-   // compile 'com.yolanda.nohttp:nohttp:+' //网络请求
+    compile 'com.anthonycr.grant:permissions:1.0'
+    //6.0以上的权限管理
+    // compile 'com.yolanda.nohttp:nohttp:+' //网络请求
     compile 'io.reactivex:rxjava:1.0.14'
-    compile 'io.reactivex:rxandroid:1.0.1' //rxjava的使用
-    compile 'com.github.bumptech.glide:glide:3.5.2'//glide的使用
-  //  compile 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'//glide使用okhttp的网络库
-    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'//使用Gson解析
+    compile 'io.reactivex:rxandroid:1.0.1'
+    //rxjava的使用
+    compile 'com.github.bumptech.glide:glide:3.5.2'
+    //glide的使用
+    //  compile 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'//glide使用okhttp的网络库
+    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
+    //使用Gson解析
     compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
     compile 'com.squareup.okhttp3:okhttp:3.1.2'
     //compile 'com.squareup.okhttp:logging-interceptor:2.7.0'//日志 okhttp2中使用
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'
-    compile 'com.google.dagger:dagger:2.0.2'    //依赖注解
+    compile 'com.google.dagger:dagger:2.0.2'
+    //依赖注解
     apt 'com.google.dagger:dagger-compiler:2.0.2'
-    compile 'org.glassfish:javax.annotation:10.0-b28'// Java标注
-
-    compile 'com.jakewharton:butterknife:7.0.1'//控件实例
-    compile 'com.github.chrisbanes:PhotoView:1.2.6'//图片的查看
-
+    compile 'org.glassfish:javax.annotation:10.0-b28'
+    // Java标注
+    compile 'com.jakewharton:butterknife:7.0.1'
+    //控件实例
+    compile 'com.github.chrisbanes:PhotoView:1.2.6'
+    //图片的查看
+    compile files('libs/YoumiSdk_v6.1.0_2016-02-26.jar')
 }

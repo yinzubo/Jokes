@@ -19,7 +19,7 @@ import java.util.List;
 import butterknife.Bind;
 
 @ActivityInject(contentViewId = R.layout.activity_home, isSlidr = false,
-        toolBarIndicator = 0,toolBarTitle ="笑话联盟" )
+        toolBarIndicator = 0,toolBarTitle ="搞笑联盟" )
 public class HomeActivity extends BaseActivity {
 
     public final int WORD=1;
