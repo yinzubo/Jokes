@@ -13,6 +13,5 @@ import java.util.List;
  */
 public interface IHomeView extends BaseView{
 
-
     public void updateRecyclerView(List<JokeBean.Joke> jokes);
 }

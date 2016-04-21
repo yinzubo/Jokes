@@ -54,9 +54,11 @@ public class RetrofitManager {
     @Inject
     public RetrofitManager() {
 
-        initOkHttpClient();
+        Rxbus.getInstance().register("request");
         //注册返回信息的转换
         Rxbus.getInstance().register("convert");
+
+        initOkHttpClient();
 
         //使用Okhttp 以及rxjava做回调
         Retrofit retrofit = new Retrofit.Builder().baseUrl(getHost()).client(okHttpClient)
@@ -69,7 +71,6 @@ public class RetrofitManager {
     public Service getService(){
         return service;
     }
-
 
     //初始化OkhttpClient
     private void initOkHttpClient()  {

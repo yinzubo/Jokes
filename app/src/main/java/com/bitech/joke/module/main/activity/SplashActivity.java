@@ -12,12 +12,16 @@ import android.widget.RelativeLayout;
 import com.bitech.joke.R;
 import com.bitech.joke.annotation.ActivityInject;
 import com.bitech.joke.base.BaseActivity;
+import com.bitech.joke.utils.NetUtil;
 import com.bitech.joke.utils.PermissionHelper;
 
 import net.youmi.android.AdManager;
 import net.youmi.android.spot.SplashView;
 import net.youmi.android.spot.SpotDialogListener;
 import net.youmi.android.spot.SpotManager;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.inject.Inject;
 
@@ -57,12 +61,24 @@ public class SplashActivity extends BaseActivity {
     private void runApp() {
         AdManager.getInstance(this).init("7ce0c2e106177a9c","841a32046abd1266");//正式
        // AdManager.getInstance(this).init("85aa56a59eac8b3d", "a14006f66f58d5d7");//测试
-        setSplashAd();
+        if(NetUtil.isConnected(this)){//联网时
+            setSplashAd();
+        }else{//不联网时
+
+            Timer timer=new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    startActivity(HomeActivity.class);
+                }
+            },5000);
+
+        }
     }
     //设置开屏广告
     private void setSplashAd(){
         SplashView splashView=new SplashView(this,null);
-        splashView.setIsJumpTargetWhenFail(true);//展示失败后直接跳转
+        splashView.setIsJumpTargetWhenFail(false);//展示失败后直接跳转
         splashView.setShowReciprocal(true);//设置显示倒计时
         splashView.hideCloseBtn(false);//隐藏关闭按钮
 

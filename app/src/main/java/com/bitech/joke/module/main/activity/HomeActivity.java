@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.bitech.joke.R;
 import com.bitech.joke.annotation.ActivityInject;
+import com.bitech.joke.app.AppManager;
 import com.bitech.joke.base.BaseActivity;
 import com.bitech.joke.module.main.Fragment.HomeFragment;
 import com.bitech.joke.module.main.adapter.FragmentViewPagerAdapter;
@@ -74,4 +75,9 @@ public class HomeActivity extends BaseActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        finish();
+        AppManager.getInstance().AppExit(this);
+    }
 }

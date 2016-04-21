@@ -37,6 +37,7 @@ public class HomePresener extends BasePresenter<IHomeView,JokeBean.Joke> {
                 List<JokeBean.Joke> jokes=((JokeBean)data).data;
                 baseView.updateRecyclerView(jokes);
             }
+
         });
     }
 
@@ -52,5 +53,6 @@ public class HomePresener extends BasePresenter<IHomeView,JokeBean.Joke> {
                 baseView.updateRecyclerView(jokes);
             }
         });
+
     }
 }

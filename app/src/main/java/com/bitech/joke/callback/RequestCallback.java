@@ -1,6 +1,8 @@
 package com.bitech.joke.callback;
 
+import com.bitech.joke.base.BaseView;
 import com.bitech.joke.utils.Logger;
+import com.bitech.joke.utils.Rxbus;
 
 /**
  * <p></p>
@@ -21,6 +23,8 @@ public class RequestCallback<T> implements IRequestCallback<T>{
     public void requestError(String msg) {
         logger.i("-------------http request error-----------------");
         logger.i(msg);
+
+        Rxbus.getInstance().post("request","网络连接失败");
     }
 
     @Override

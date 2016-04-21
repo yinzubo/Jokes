@@ -15,6 +15,7 @@ import com.bitech.joke.module.main.presenter.HomePresener;
 import com.bitech.joke.module.main.view.IHomeView;
 import com.bitech.joke.utils.Constants;
 import com.bitech.joke.utils.DividerItemDecoration;
+import com.bitech.joke.utils.Rxbus;
 import com.bitech.joke.utils.ToastUtil;
 import com.bitech.joke.widgets.AutoLoadMoreRecyclerView;
 import com.bitech.joke.widgets.AutoSwipeRefreshLayout;
@@ -24,6 +25,8 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.Bind;
+import rx.Observable;
+import rx.functions.Action1;
 
 /**
  * <p></p>
@@ -79,6 +82,14 @@ public class HomeFragment extends BaseFragment implements IHomeView, OnItemClick
         //swipeRefreshLayout.setRefreshing(true);
         swipeRefreshLayout.autoRefresh();//首次进入页面自动刷新，但是其不会调用onRefresh接口，只有手动下拉才会调用
         getData();
+
+        Observable<String> observable=Rxbus.getInstance().register("request");
+        observable.subscribe(new Action1<String>() {
+            @Override
+            public void call(String s) {
+                ToastUtil.showToast(getActivity(),s);
+            }
+        });
     }
 
     //初始化依赖注解

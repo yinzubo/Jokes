@@ -60,7 +60,7 @@ public class AutoLoadMoreRecyclerView extends RecyclerView{
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
 
-                if (mCurrentState == STATE_MORE_LOADED && RecyclerView.SCROLL_STATE_IDLE == newState && calculateRecyclerViewFirstPosition() == getAdapter()
+                if (mCurrentState == STATE_MORE_LOADED && RecyclerView.SCROLL_STATE_IDLE == newState && getAdapter()!=null&&calculateRecyclerViewFirstPosition() == getAdapter()
                         .getItemCount() - 1 && mLoadMoreListener != null) {
                     // 之前的状态为非正在加载状态
                     logger.e("加载更多数据");
